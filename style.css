@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: gray;
+  display: flex;
+}
+.game {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 520px;
+  height: 520px;
+  background-color: white;
+}
+.square {
+  background: rgba(187, 10, 10, 0.856);
+  border: 1px solid thistle;
+  width: 130px;
+  height: 130px;
+  cursor: pointer;
+  color: rgb(19, 17, 17);
+  font-size: 5rem;
+}
+.square-black {
+  background: rgba(49, 45, 45, 0.856);
+  border: 1px solid thistle;
+  width: 130px;
+  height: 130px;
+  cursor: pointer;
+  color: rgb(19, 17, 17);
+  font-size: 5rem;
+}
+.square,
+.square-black {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
