@@ -75,7 +75,6 @@ function squareNumbers() {
           ) {
             target.innerHTML = "";
           }
-          console.log(numClicks);
         });
       }
       //when the length of the array is two, reset the array
