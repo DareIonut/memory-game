@@ -1,13 +1,14 @@
 //selectors
 const gameContainer = document.querySelector(".container");
+const display = document.querySelector("span");
 const randomNumbers = getRandom();
 
 //create the map
 
 let map = [
-  [0, 1, 0, 0],
+  [1, 1, 0, 0],
   [1, 0, 0, 1],
-  [0, 1, 1, 0],
+  [0, 1, 0, 0],
   [1, 1, 0, 1],
 ];
 
@@ -21,6 +22,7 @@ for (let i = 0; i < map.length; i++) {
     }
   }
 }
+squareNumbers();
 
 //functions
 function drawRed() {
@@ -61,22 +63,25 @@ function squareNumbers() {
     target.addEventListener("click", (e) => {
       //pushing in array
       tempArr.push(target.dataset.squareValue);
-      console.log(tempArr);
       target.innerHTML = target.dataset.squareValue;
       //if there is equal you were right
       if (tempArr[0] === tempArr[1]) {
-        console.log("It is a match");
+        display.innerHTML = "It's a match!";
       } else if (tempArr.length == 2 && tempArr[0] !== tempArr[1]) {
-        console.log("You were wrong");
-        allSquares.forEach((target) => {
-          if (
-            target.innerHTML === tempArr[0] ||
-            target.innerHTML === tempArr[1]
-          ) {
-            target.innerHTML = "";
-          }
-        });
+        let num1 = tempArr[0];
+        let num2 = tempArr[1];
+        display.innerHTML = "You're wrong!";
+        setTimeout(clearWrongNumbers, 1000);
+        function clearWrongNumbers() {
+          allSquares.forEach((target) => {
+            if (target.innerHTML === num1 || target.innerHTML === num2) {
+              target.innerHTML = "";
+              display.innerHTML = "Try again!";
+            }
+          });
+        }
       }
+
       //when the length of the array is two, reset the array
       if (tempArr.length === 2) {
         tempArr = [];
@@ -93,6 +98,4 @@ function giveNum(square) {
     j++;
   }
 }
-squareNumbers();
 //testing
-console.log(gameContainer);

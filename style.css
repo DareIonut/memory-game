@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -5,12 +7,25 @@
 }
 
 body {
-  background: gray;
+  background: #f3eded;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+h1 {
+  font-size: 3rem;
+  margin: 1rem;
+  color: rgb(71, 65, 65);
+}
+span {
+  font-size: 1.5rem;
+  margin: 1rem;
+  color: rgb(71, 65, 65);
 }
 .game {
   width: 100vw;
-  height: 100vh;
+  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,24 +36,28 @@ body {
   position: relative;
   width: 520px;
   height: 520px;
-  background-color: white;
+  background: #f3eded;
 }
 .square {
-  background: rgba(187, 10, 10, 0.856);
+  background: rgb(241, 46, 46);
   border: 1px solid thistle;
-  width: 130px;
-  height: 130px;
+  border-radius: 50%;
+  margin: 2.5px;
+  width: 125px;
+  height: 125px;
   cursor: pointer;
-  color: rgb(19, 17, 17);
+  color: rgb(240, 233, 233);
   font-size: 5rem;
 }
 .square-black {
-  background: rgba(49, 45, 45, 0.856);
+  background: rgb(241, 46, 46);
   border: 1px solid thistle;
-  width: 130px;
-  height: 130px;
+  margin: 2.5px;
+  width: 125px;
+  height: 125px;
   cursor: pointer;
-  color: rgb(19, 17, 17);
+  border-radius: 50%;
+  color: rgb(240, 233, 233);
   font-size: 5rem;
 }
 .square,
