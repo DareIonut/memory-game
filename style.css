@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&family=Roboto:wght@500&display=swap");
 
 * {
   margin: 0;
@@ -11,17 +11,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Mono", monospace;
 }
 h1 {
   font-size: 3rem;
-  margin: 1rem;
   color: rgb(71, 65, 65);
 }
 span {
   font-size: 1.5rem;
-  margin: 1rem;
   color: rgb(71, 65, 65);
+  margin: 2rem;
 }
 .game {
   width: 100vw;
@@ -34,35 +34,69 @@ span {
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  width: 520px;
-  height: 520px;
-  background: #f3eded;
+  box-shadow: 0px 8px 23px -6px rgba(0, 0, 0, 0.91);
+  padding: 25px;
+  width: 570px;
+  height: 570px;
+  border-radius: 25px;
+  background: #c2c2c2;
 }
-.square {
-  background: rgb(241, 46, 46);
+.circle {
+  background: rgb(255, 255, 255);
   border: 1px solid thistle;
-  border-radius: 50%;
-  margin: 2.5px;
-  width: 125px;
-  height: 125px;
+  border-radius: 25px;
+  box-shadow: 0px 8px 23px -6px rgba(0, 0, 0, 0.91);
+  color: rgb(92, 88, 88);
+  margin: 3px;
+  width: 120px;
+  height: 120px;
   cursor: pointer;
-  color: rgb(240, 233, 233);
   font-size: 5rem;
-}
-.square-black {
-  background: rgb(241, 46, 46);
-  border: 1px solid thistle;
-  margin: 2.5px;
-  width: 125px;
-  height: 125px;
-  cursor: pointer;
-  border-radius: 50%;
-  color: rgb(240, 233, 233);
-  font-size: 5rem;
-}
-.square,
-.square-black {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.good {
+  background-color: rgb(162, 255, 70);
+}
+.bad {
+  background-color: rgb(220, 20, 20);
+}
+.flip-scale-up-ver {
+  animation: flip-scale-up-ver 0.5s linear;
+}
+
+/**
+ * ----------------------------------------
+ * animation flip-scale-up-ver
+ * ----------------------------------------
+ */
+@-webkit-keyframes flip-scale-up-ver {
+  0% {
+    -webkit-transform: scale(1) rotateY(0);
+    transform: scale(1) rotateY(0);
+  }
+  50% {
+    -webkit-transform: scale(2.5) rotateY(90deg);
+    transform: scale(2.5) rotateY(90deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateY(180deg);
+    transform: scale(1) rotateY(180deg);
+  }
+}
+@keyframes flip-scale-up-ver {
+  0% {
+    -webkit-transform: scale(1) rotateY(0);
+    transform: scale(1) rotateY(0);
+  }
+  50% {
+    -webkit-transform: scale(2.5) rotateY(90deg);
+    transform: scale(2.5) rotateY(90deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateY(180deg);
+    transform: scale(1) rotateY(180deg);
+  }
 }

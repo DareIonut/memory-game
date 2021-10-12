@@ -6,39 +6,35 @@ const randomNumbers = getRandom();
 //create the map
 
 let map = [
-  [1, 1, 0, 0],
-  [1, 0, 0, 1],
-  [0, 1, 0, 0],
-  [1, 1, 0, 1],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
 ];
 
 //iterate through the map
-for (let i = 0; i < map.length; i++) {
-  for (let j = 0; j < map[i].length; j++) {
-    if (map[i][j] === 1) {
-      drawRed();
-    } else if (map[i][j] === 0) {
-      drawBlack();
+function randomizeArray() {
+  let temp = 0;
+  for (let i = 0; i < map.length; i++) {
+    for (let j = 0; j < map[i].length; j++) {
+      map[i][j] = randomNumbers[temp];
+      createItems(map[i][j]);
+      temp = temp + 1;
     }
   }
 }
+randomizeArray();
 squareNumbers();
 
 //functions
-function drawRed() {
-  const square = document.createElement("DIV");
-  square.classList.add("square");
-  square.classList.add("game-engine");
-  gameContainer.appendChild(square);
-}
-function drawBlack() {
-  const squareBlack = document.createElement("DIV");
-  squareBlack.classList.add("square-black");
-  squareBlack.classList.add("game-engine");
-  gameContainer.appendChild(squareBlack);
+function createItems(value) {
+  const circle = document.createElement("DIV");
+  circle.classList.add("circle");
+  circle.dataset.value = `${value}`;
+  gameContainer.appendChild(circle);
 }
 function getRandom() {
-  let nums = [1, 2, 3, 4, 5, 6, 7, 8], //all numbers to be randomized
+  let nums = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8], //all numbers to be randomized
     ranNums = [],
     i = nums.length,
     j = 0;
@@ -51,19 +47,18 @@ function getRandom() {
 }
 function squareNumbers() {
   //Selecting all the squares
-  let squaresRed = document.querySelectorAll(".square");
-  let squaresBlack = document.querySelectorAll(".square-black");
-  let allSquares = document.querySelectorAll(".game-engine");
-  giveNum(squaresRed);
-  giveNum(squaresBlack);
+  let circles = document.querySelectorAll(".circle");
   //Set an empty array
   let tempArr = [];
   //EVENT
-  allSquares.forEach((target) => {
+  circles.forEach((target) => {
     target.addEventListener("click", (e) => {
       //pushing in array
-      tempArr.push(target.dataset.squareValue);
-      target.innerHTML = target.dataset.squareValue;
+      target.classList.add("flip-scale-up-ver");
+      target.addEventListener("animationend", () => {
+        target.innerHTML = target.dataset.value;
+      });
+      tempArr.push(target.dataset.value);
       //if there is equal you were right
       if (tempArr[0] === tempArr[1]) {
         display.innerHTML = "It's a match!";
@@ -71,10 +66,12 @@ function squareNumbers() {
         let num1 = tempArr[0];
         let num2 = tempArr[1];
         display.innerHTML = "You're wrong!";
+        console.log(tempArr);
         setTimeout(clearWrongNumbers, 1000);
         function clearWrongNumbers() {
-          allSquares.forEach((target) => {
+          circles.forEach((target) => {
             if (target.innerHTML === num1 || target.innerHTML === num2) {
+              target.classList.remove("flip-scale-up-ver");
               target.innerHTML = "";
               display.innerHTML = "Try again!";
             }
@@ -89,13 +86,5 @@ function squareNumbers() {
     });
   });
 }
-function giveNum(square) {
-  let j = 0;
-  while (j < randomNumbers.length) {
-    for (let i = 0; i < square.length; i++) {
-      square[i].dataset.squareValue = randomNumbers[i];
-    }
-    j++;
-  }
-}
+
 //testing
