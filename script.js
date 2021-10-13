@@ -1,6 +1,7 @@
 //selectors
 const gameContainer = document.querySelector(".container");
-const display = document.querySelector("span");
+const display = document.querySelector("#game-info");
+const moves = document.querySelector(".moves");
 const randomNumbers = getRandom();
 
 //create the map
@@ -47,12 +48,15 @@ function getRandom() {
 }
 function squareNumbers() {
   //Selecting all the squares
-  let circles = document.querySelectorAll(".circle");
+  const circles = document.querySelectorAll(".circle");
   //Set an empty array
   let tempArr = [];
+  let countMoves = 0;
   //EVENT
   circles.forEach((target) => {
     target.addEventListener("click", (e) => {
+      countMoves = countMoves + 1;
+      moves.innerHTML = countMoves;
       //pushing in array
       target.classList.add("flip-scale-up-ver");
       target.addEventListener("animationend", () => {
