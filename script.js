@@ -57,6 +57,7 @@ function squareNumbers() {
       target.classList.add("flip-scale-up-ver");
       target.addEventListener("animationend", () => {
         target.innerHTML = target.dataset.value;
+        target.classList.add("taped");
       });
       tempArr.push(target.dataset.value);
       //if there is equal you were right
@@ -72,6 +73,7 @@ function squareNumbers() {
           circles.forEach((target) => {
             if (target.innerHTML === num1 || target.innerHTML === num2) {
               target.classList.remove("flip-scale-up-ver");
+              target.classList.remove("taped");
               target.innerHTML = "";
               display.innerHTML = "Try again!";
             }

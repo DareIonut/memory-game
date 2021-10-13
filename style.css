@@ -7,7 +7,7 @@
 }
 
 body {
-  background: #f3eded;
+  background: #b9d9eb;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,11 +16,11 @@ body {
 }
 h1 {
   font-size: 3rem;
-  color: rgb(71, 65, 65);
+  color: rgb(255, 255, 255);
 }
 span {
   font-size: 1.5rem;
-  color: rgb(71, 65, 65);
+  color: rgb(255, 247, 247);
   margin: 2rem;
 }
 .game {
@@ -39,29 +39,26 @@ span {
   width: 570px;
   height: 570px;
   border-radius: 25px;
-  background: #c2c2c2;
+  background: #add8e6;
 }
 .circle {
-  background: rgb(255, 255, 255);
-  border: 1px solid thistle;
+  background: #e0ffff;
+  border: none;
   border-radius: 25px;
   box-shadow: 0px 8px 23px -6px rgba(0, 0, 0, 0.91);
-  color: rgb(92, 88, 88);
+  color: rgb(255, 255, 255);
   margin: 3px;
   width: 120px;
   height: 120px;
   cursor: pointer;
-  font-size: 5rem;
+  font-size: 6rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.good {
-  background-color: rgb(162, 255, 70);
-}
-.bad {
-  background-color: rgb(220, 20, 20);
+.taped {
+  background: #b9d9eb;
 }
 .flip-scale-up-ver {
   animation: flip-scale-up-ver 0.5s linear;
@@ -98,5 +95,30 @@ span {
   100% {
     -webkit-transform: scale(1) rotateY(180deg);
     transform: scale(1) rotateY(180deg);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  h1 {
+    font-size: 2rem;
+  }
+  span {
+    font-size: 1rem;
+    margin: 2rem;
+  }
+
+  .container {
+    padding: 25px;
+    width: 340px;
+    height: 340px;
+    border-radius: 25px;
+  }
+  .circle {
+    margin: 3px;
+    width: 65px;
+    height: 65px;
+    border-radius: 15px;
+    font-size: 2.5rem;
+    font-weight: bold;
   }
 }
