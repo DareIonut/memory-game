@@ -6,6 +6,12 @@ This is a simple memory game built with HTML, CSS, and JavaScript. The game cons
 
 [Live Demo](https://serene-pixie-bfc605.netlify.app/)
 
+## Images
+![pair1](https://user-images.githubusercontent.com/75719265/236127170-70336b7d-f2ca-4e75-803d-121eb65ce3ae.png)
+![pair2](https://user-images.githubusercontent.com/75719265/236127187-ac3a8583-b882-47ae-98ac-42d4e15fda35.png)
+![pair3](https://user-images.githubusercontent.com/75719265/236127195-cce7a9e8-2c38-4c15-a171-31782ad8c70e.png)
+![pair4](https://user-images.githubusercontent.com/75719265/236127200-73000639-6f60-4d7d-b399-9f9e154701ee.png)
+
 ## Installation
 
 1. Clone this repository: `git clone https://github.com/DareIonut/memory-game`
